@@ -87,5 +87,6 @@ char	*get_next_line(int fd);
 // New libft functions
 char	*ft_uitoa_base(unsigned long nbr, char *base);
 int		ft_atoi_base(char *str, char *base);
+char	*ft_strtolower(char *str);
 
 #endif

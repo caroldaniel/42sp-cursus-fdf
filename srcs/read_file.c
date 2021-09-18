@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 17:43:12 by cado-car          #+#    #+#             */
-/*   Updated: 2021/09/14 23:16:29 by cado-car         ###   ########lyon.fr   */
+/*   Updated: 2021/09/18 12:11:39 by cado-car         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 static int	get_depth(char *file_name);
 static int	get_width(char *file_name);
 static void	get_points(char *file_name, t_fdf *fdf);
-static void	get_height_color(char *point, t_fdf *fdf, int *height, int *color);
+static void	get_height_color(char *point, t_fdf *fdf, int coord_x, int coord_y);
 
 int	read_fdf_file(char *file_name, t_fdf *fdf)
 {
 	if (!file_name || !fdf)
 		return (0);
-	*fdf->max_width = get_width(file_name);
-	*fdf->max_depth = get_depth(file_name);
+	fdf->max_width = get_width(file_name);
+	fdf->max_depth = get_depth(file_name);
+	fdf->coordinates = init_coordinates(fdf->max_width, fdf->max_depth);
 	get_points(file_name, fdf);
 	return (1);
 }
@@ -62,15 +63,15 @@ static void	get_points(char *file_name, t_fdf *fdf)
 	int 	j;
 
 	fd = open(file_name, O_RDONLY, 0);
-	j = 0;
-	while (i < *fdf->max_depth)
+	i = 0;
+	while (i < fdf->max_depth)
 	{
 		line = get_next_line(fd);
 		split = ft_split(line, ' ');
-		i = 0;
-		while (j < (int)ft_split_count(line, ' '))
+		j = 0;
+		while (j < fdf->max_width)
 		{
-			get_height_color(split[j], fdf, &fdf->coordinates[i][j][0], &fdf->coordinates[i][j][0]);
+			get_height_color(split[j], fdf, j, i);
 			free(split[j]);
 			j++;
 		}
@@ -81,23 +82,28 @@ static void	get_points(char *file_name, t_fdf *fdf)
 	close(fd);
 }
 
-static void	get_height_color(char *point, t_fdf *fdf, int *height, int *color)
+static void	get_height_color(char *point, t_fdf *fdf, int coord_x, int coord_y)
 {
 	char	**info;
+	int		i;
+	
 	if (ft_strchr(point, ','))
 	{
 		info = ft_split(point, ',');
-		*height = ft_atoi(info[0]);
-		*color = ft_atoi_base(info[1], HEXADECIMAL_L_BASE);
+		fdf->coordinates[coord_x][coord_y][0] = ft_atoi(info[0]);
+		fdf->coordinates[coord_x][coord_y][1] = ft_atoi_base(ft_strtolower(info[1]), HEXADECIMAL_L_BASE);
+		i = 0;
+		while (info[i])
+			free(info[i++]);
 		free(info);
 	}
 	else
 	{
-		*height = ft_atoi(point);
-		*color = ft_atoi_base(COLOR_DEFAULT, HEXADECIMAL_L_BASE);
+		fdf->coordinates[coord_x][coord_y][0] = ft_atoi(point);
+		fdf->coordinates[coord_x][coord_y][1] = ft_atoi_base(COLOR_DEFAULT, HEXADECIMAL_L_BASE);
 	}
-	if (*height > *fdf->max_height)
-		*fdf->max_height = *height;
-	if (*height < *fdf->min_height)
-		*fdf->min_height = *height;
+	if (fdf->coordinates[coord_x][coord_y][0] > fdf->max_height)
+		fdf->max_height = fdf->coordinates[coord_x][coord_y][0];
+	if (fdf->coordinates[coord_x][coord_y][0] < fdf->min_height)
+		fdf->min_height = fdf->coordinates[coord_x][coord_y][0];
 }

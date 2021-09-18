@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 23:12:43 by cado-car          #+#    #+#             */
-/*   Updated: 2021/09/14 22:39:40 by cado-car         ###   ########lyon.fr   */
+/*   Updated: 2021/09/18 16:40:22 by cado-car         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,45 +16,37 @@ int	ft_check_base_error(char *str);
 
 int	ft_atoi_base(char *str, char *base)
 {
-	int				i;
-	int				sign;
-	unsigned int	total;
+	size_t	i;
 
-	if (ft_check_base_error(base) == 1)
-	{
-		i = 0;
-		sign = 1;
-		total = 0;
-		while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-			i++;
-		while (str[i] == '+' || str[i] == '-')
-		{
-			if (str[i] == '-')
-				sign *= (-1);
-			i++;
-		}
-		total = ft_convert_from_base(&str[i], base);
-		return (total * sign);
-	}
-	else
+	if (!ft_check_base_error(base))
 		return (0);
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '0')
+	{
+		if (str[i + 1] == 'x')
+			i += 2;
+	}
+	return (ft_convert_from_base(&str[i], base));
 }
 
 int	ft_convert_from_base(char *str, char *base)
 {
-	int	i;
-	int	c;
-	int	total;
+	size_t	i;
+	size_t	c;
+	int		total;
+	int		base_len;
 
 	i = 0;
 	total = 0;
+	base_len = ft_strlen(base);
 	while (ft_strchr(base, str[i]))
 	{
 		c = 0;
-		while (base[c] != str[i])
+		while (base[c] != str[i] && base[c])
 			c++;
-		total *= ft_strlen(base);
-		total += c;
+		total = (total * base_len) + c;
 		i++;
 	}
 	return (total);
@@ -62,23 +54,18 @@ int	ft_convert_from_base(char *str, char *base)
 
 int	ft_check_base_error(char *str)
 {
-	int	i;
-	int	c;
-	int	len;
+	size_t	i;
+	size_t	c;
 
 	i = 0;
-	len = ft_strlen(str);
-	if (str[i] == '\0' || len == 1)
+	if (ft_strlen(str) <= 1)
 		return (0);
-	while (str[i] != '\0')
+	while (str[i])
 	{
-		if (str[i] == '+' || str[i] == '-' \
-			|| str[i] == ' ' || str[i] == '\n' \
-			|| str[i] == '\t' || str[i] == '\v' \
-			|| str[i] == '\f' || str[i] == '\r')
+		if (!ft_isprint(str[i]))
 			return (0);
 		c = 1;
-		while (str[i + c] != '\0')
+		while (str[i + c])
 		{
 			if (str[i + c] == str[i])
 				return (0);
