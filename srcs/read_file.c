@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 17:43:12 by cado-car          #+#    #+#             */
-/*   Updated: 2021/09/18 12:11:39 by cado-car         ###   ########lyon.fr   */
+/*   Updated: 2021/09/19 02:39:20 by cado-car         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,34 @@ static int	get_width(char *file_name)
 	line = get_next_line(fd);
 	width = (int)ft_split_count(line, ' ');
 	free(line);
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		free(line);
+	}
 	close(fd);
 	return (width);
 }
 
 static int	get_depth(char *file_name)
 {
-	int fd;
-	int depth;
+	int		fd;
+	int		depth;
+	char	*line;
 
 	fd = open(file_name, O_RDONLY, 0);
 	depth = 0;
-	while(get_next_line(fd))
-		depth++;
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		if (ft_isprint(*line))
+			depth++;
+		free(line);
+	}
 	close(fd);
 	return (depth);
 }
@@ -60,7 +75,7 @@ static void	get_points(char *file_name, t_fdf *fdf)
 	char	*line;
 	char	**split;
 	int		i;
-	int 	j;
+	int		j;
 
 	fd = open(file_name, O_RDONLY, 0);
 	i = 0;
@@ -86,12 +101,13 @@ static void	get_height_color(char *point, t_fdf *fdf, int coord_x, int coord_y)
 {
 	char	**info;
 	int		i;
-	
+
 	if (ft_strchr(point, ','))
 	{
 		info = ft_split(point, ',');
 		fdf->coordinates[coord_x][coord_y][0] = ft_atoi(info[0]);
-		fdf->coordinates[coord_x][coord_y][1] = ft_atoi_base(ft_strtolower(info[1]), HEXADECIMAL_L_BASE);
+		fdf->coordinates[coord_x][coord_y][1] = \
+			ft_atoi_base(info[1], HEXADECIMAL_L_BASE);
 		i = 0;
 		while (info[i])
 			free(info[i++]);
@@ -100,7 +116,8 @@ static void	get_height_color(char *point, t_fdf *fdf, int coord_x, int coord_y)
 	else
 	{
 		fdf->coordinates[coord_x][coord_y][0] = ft_atoi(point);
-		fdf->coordinates[coord_x][coord_y][1] = ft_atoi_base(COLOR_DEFAULT, HEXADECIMAL_L_BASE);
+		fdf->coordinates[coord_x][coord_y][1] = \
+			ft_atoi_base(COLOR_DEFAULT, HEXADECIMAL_L_BASE);
 	}
 	if (fdf->coordinates[coord_x][coord_y][0] > fdf->max_height)
 		fdf->max_height = fdf->coordinates[coord_x][coord_y][0];

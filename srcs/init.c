@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 17:49:11 by cado-car          #+#    #+#             */
-/*   Updated: 2021/09/18 11:41:15 by cado-car         ###   ########lyon.fr   */
+/*   Updated: 2021/09/19 02:36:50 by cado-car         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_fdf	*init_fdf(void)
 {
-	t_fdf *fdf;
-	
+	t_fdf	*fdf;
+
 	fdf = malloc(sizeof(t_fdf));
 	if (!fdf)
 		return (NULL);
@@ -30,9 +30,9 @@ t_fdf	*init_fdf(void)
 int	***init_coordinates(int width, int depth)
 {
 	int	i;
-	int j;
+	int	j;
 	int	***coordinates;
-	
+
 	coordinates = (int ***)malloc(width * sizeof(int **));
 	if (!coordinates)
 		return (NULL);
