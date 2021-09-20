@@ -1,1 +1,1 @@
-gcc -Wall -Wextra -Werror srcs/*.c -L./libft/ -lft -o fdf
+gcc -Wall -Wextra -Werror srcs/*.c -L./mlx_linux/ -lmlx -Llibft -lft -lXext -lX11 -o fdf

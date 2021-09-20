@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 17:49:11 by cado-car          #+#    #+#             */
-/*   Updated: 2021/09/19 02:36:50 by cado-car         ###   ########lyon.fr   */
+/*   Updated: 2021/09/20 14:31:19 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,17 @@ int	***init_coordinates(int width, int depth)
 		i++;
 	}
 	return (coordinates);
+}
+
+t_data	*init_data(void)
+{
+	t_data	*data;
+
+	data = malloc(sizeof(t_data));
+	if (!data)
+		return (NULL);
+	data->mlx = NULL;
+	data->win = NULL;
+	
+	return (data);
 }
