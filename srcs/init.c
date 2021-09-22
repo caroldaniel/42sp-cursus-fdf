@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 17:49:11 by cado-car          #+#    #+#             */
-/*   Updated: 2021/09/21 22:44:55 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/09/22 19:04:47 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,18 @@ t_fdf	*init_fdf(void)
 t_cam	*init_cam(void)
 {
 	t_cam	*cam;
-	
+
 	cam = malloc(sizeof(t_cam));
 	if (!cam)
 		return (NULL);
 	cam->zoom = INITIAL_ZOOM;
+	cam->alpha = 0;
+	cam->beta = 0;
+	cam->gamma = 0;
+	cam->z_scale = INITIAL_ZOOM;
 	cam->projection = ISOMETRIC;
-	cam->x_pad = MARGIN;
-	cam->y_pad = MARGIN;
+	cam->x_shift = MARGIN;
+	cam->y_shift = -MARGIN;
 	return (cam);
 }
 
