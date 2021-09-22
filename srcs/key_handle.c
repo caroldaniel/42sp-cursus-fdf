@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   key_handle.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/14 17:33:55 by cado-car          #+#    #+#             */
-/*   Updated: 2021/09/21 20:09:11 by cado-car         ###   ########.fr       */
+/*   Created: 2021/09/20 21:04:25 by cado-car          #+#    #+#             */
+/*   Updated: 2021/09/21 20:02:42 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
+#include <stdio.h>
 
-int	main(int argc, char **argv)
+int key_handle(int keycode, t_mlx *mlx)
 {
-	char	*file_name;
-	t_fdf	*fdf;
-	t_mlx	*mlx;
-
-	if (argc != 2)
-		error(1);
-	file_name = argv[1];
-	fdf = read_fdf_file(file_name);
-	mlx = init_mlx(fdf);
-	render(mlx);
-	mlx_key_hook(mlx->win, &key_handle, &mlx);
-	mlx_loop(mlx->mlx);
+	if (keycode == KEY_I)
+		mlx->cam->zoom += 1;
+	else if (keycode == KEY_O) 
+    {
+        if (mlx->cam->zoom > 1)
+		    mlx->cam->zoom -= 1;
+    }
+	else if (keycode == KEY_ESC) 
+		exit(0);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 17:49:11 by cado-car          #+#    #+#             */
-/*   Updated: 2021/09/20 14:31:19 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/09/21 22:44:55 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,43 +27,51 @@ t_fdf	*init_fdf(void)
 	return (fdf);
 }
 
-int	***init_coordinates(int width, int depth)
+t_cam	*init_cam(void)
 {
-	int	i;
-	int	j;
-	int	***coordinates;
-
-	coordinates = (int ***)malloc(width * sizeof(int **));
-	if (!coordinates)
+	t_cam	*cam;
+	
+	cam = malloc(sizeof(t_cam));
+	if (!cam)
 		return (NULL);
-	i = 0;
-	while (i < width)
-	{
-		coordinates[i] = (int **)malloc(depth * sizeof(int *));
-		if (!coordinates[i])
-			return (NULL);
-		j = 0;
-		while (j < depth)
-		{
-			coordinates[i][j] = (int *)malloc(2 * sizeof(int));
-			if (!coordinates[i][j])
-				return (NULL);
-			j++;
-		}
-		i++;
-	}
-	return (coordinates);
+	cam->zoom = INITIAL_ZOOM;
+	cam->projection = ISOMETRIC;
+	cam->x_pad = MARGIN;
+	cam->y_pad = MARGIN;
+	return (cam);
 }
 
-t_data	*init_data(void)
+t_mlx	*init_mlx(t_fdf *fdf)
 {
-	t_data	*data;
+	t_mlx	*mlx;
 
-	data = malloc(sizeof(t_data));
-	if (!data)
+	mlx = malloc(sizeof(t_mlx));
+	if (!mlx)
 		return (NULL);
-	data->mlx = NULL;
-	data->win = NULL;
-	
-	return (data);
+	mlx->mlx = mlx_init();
+	mlx->win_x = SCREEN_WIDTH;
+	mlx->win_y = SCREEN_HEIGHT;
+	mlx->fdf = fdf;
+	mlx->win = mlx_new_window(mlx->mlx, mlx->win_x, mlx->win_y, WINDOW_NAME);
+	mlx->cam = init_cam();
+	mlx->line = init_line();
+	return (mlx);
+}
+
+t_line	*init_line(void)
+{
+	t_line	*line;
+
+	line = malloc(sizeof(t_line));
+	if (!line)
+		return (NULL);
+	line->start_x = 0;
+	line->start_y = 0;
+	line->start_z = 0;
+	line->start_color = COLOR_DEFAULT;
+	line->end_x = 0;
+	line->end_y = 0;
+	line->end_z = 0;
+	line->end_color = COLOR_DEFAULT;
+	return (line);
 }

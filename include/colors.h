@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   colors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/14 17:33:55 by cado-car          #+#    #+#             */
-/*   Updated: 2021/09/21 20:09:11 by cado-car         ###   ########.fr       */
+/*   Created: 2021/09/20 23:30:23 by cado-car          #+#    #+#             */
+/*   Updated: 2021/09/21 18:25:14 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#ifndef COLORS_H
+# define COLORS_H
 
-int	main(int argc, char **argv)
-{
-	char	*file_name;
-	t_fdf	*fdf;
-	t_mlx	*mlx;
+# define C_RED      0xe80c0c
+# define C_WHITE    0xffffff
 
-	if (argc != 2)
-		error(1);
-	file_name = argv[1];
-	fdf = read_fdf_file(file_name);
-	mlx = init_mlx(fdf);
-	render(mlx);
-	mlx_key_hook(mlx->win, &key_handle, &mlx);
-	mlx_loop(mlx->mlx);
-}
+#endif

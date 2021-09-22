@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 17:43:12 by cado-car          #+#    #+#             */
-/*   Updated: 2021/09/20 14:29:31 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/09/21 22:00:37 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,21 @@ static int	get_width(char *file_name);
 static void	get_points(char *file_name, t_fdf *fdf);
 static void	get_height_color(char *point, t_fdf *fdf, int coord_x, int coord_y);
 
-int	read_fdf_file(char *file_name, t_fdf *fdf)
+t_fdf	*read_fdf_file(char *file_name)
 {
-	if (!file_name || !fdf)
-		return (0);
+	int		fd;
+	t_fdf	*fdf;
+
+	fd = open(file_name, O_RDONLY, 0);
+	if (fd < 0)
+		error(2);
+	close(fd);
+	fdf = init_fdf();
 	fdf->max_width = get_width(file_name);
 	fdf->max_depth = get_depth(file_name);
 	fdf->coordinates = init_coordinates(fdf->max_width, fdf->max_depth);
 	get_points(file_name, fdf);
-	return (1);
+	return (fdf);
 }
 
 static int	get_width(char *file_name)
@@ -116,8 +122,7 @@ static void	get_height_color(char *point, t_fdf *fdf, int coord_x, int coord_y)
 	else
 	{
 		fdf->coordinates[coord_x][coord_y][0] = ft_atoi(point);
-		fdf->coordinates[coord_x][coord_y][1] = \
-			ft_atoi_base(COLOR_DEFAULT, HEXADECIMAL_L_BASE);
+		fdf->coordinates[coord_x][coord_y][1] = -1;
 	}
 	if (fdf->coordinates[coord_x][coord_y][0] > fdf->max_height)
 		fdf->max_height = fdf->coordinates[coord_x][coord_y][0];
