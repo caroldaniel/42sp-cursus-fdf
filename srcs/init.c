@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:36:24 by cado-car          #+#    #+#             */
-/*   Updated: 2021/09/30 22:44:18 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/09/30 23:09:45 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ t_cam	*init_cam(void)
 	cam = malloc(sizeof(t_cam));
 	if (!cam)
 		return (NULL);
+	cam->projection = ISOMETRIC;
 	cam->scale_factor = 0;
 	cam->move_x = 0;
 	cam->move_y = 0;
