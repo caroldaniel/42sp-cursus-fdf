@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:29:41 by cado-car          #+#    #+#             */
-/*   Updated: 2021/09/30 12:11:54 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/09/30 22:50:42 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_map	*read_map(char *file_name)
 	if (!map->coordinates)
 		error(3);
 	get_points(file_name, map);
-	return(map);
+	return (map);
 }
 
 static int	get_width(char *file_name)
@@ -42,9 +42,12 @@ static int	get_width(char *file_name)
 	int		fd;
 	char	*line;
 	int		width;
+	int		new_width;
 
 	fd = open(file_name, O_RDONLY, 0);
 	line = get_next_line(fd);
+	if (!line)
+		error(4);
 	width = (int)ft_split_count(line, ' ');
 	free(line);
 	while (1)
@@ -52,6 +55,9 @@ static int	get_width(char *file_name)
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
+		new_width = (int)ft_split_count(line, ' ');
+		if (width != new_width)
+			error(4);
 		free(line);
 	}
 	close(fd);

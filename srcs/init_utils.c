@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:54:44 by cado-car          #+#    #+#             */
-/*   Updated: 2021/09/30 11:43:05 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/09/30 22:48:39 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,23 @@ t_point	**init_coordinates(int width, int depth)
 		j = 0;
 		while (j < depth)
 		{
-			coordinates[i][j] = init_point();
+			coordinates[i][j].x = 0;
+			coordinates[i][j].y = 0;
+			coordinates[i][j].z = 0;
+			coordinates[i][j].color = 0;
 			j++;
 		}
 		i++;
 	}
 	return (coordinates);
+}
+
+float	scale_to_fit(t_map *map)
+{
+	float	scale_x;
+	float	scale_y;
+
+	scale_x = WINDOW_WIDTH / map->max_width;
+	scale_y = WINDOW_HEIGHT / map->max_depth;
+	return (MIN(scale_x, scale_y));
 }
