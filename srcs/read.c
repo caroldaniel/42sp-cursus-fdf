@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:29:41 by cado-car          #+#    #+#             */
-/*   Updated: 2021/09/30 22:50:42 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/01 20:18:41 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,13 @@ t_map	*read_map(char *file_name)
 	map = init_map();
 	if (!map)
 		error(3);
-	map->max_width = get_width(file_name);
-	map->max_depth = get_depth(file_name);
-	map->coordinates = init_coordinates(map->max_width, map->max_depth);
+	map->max_x = get_width(file_name);
+	map->max_y = get_depth(file_name);
+	map->coordinates = init_coordinates(map->max_x, map->max_y);
 	if (!map->coordinates)
 		error(3);
 	get_points(file_name, map);
+	center_to_origin(map);
 	return (map);
 }
 
@@ -90,25 +91,25 @@ static void	get_points(char *file_name, t_map *map)
 	int		fd;
 	char	*line;
 	char	**split;
-	int		i;
-	int		j;
+	int		x;
+	int		y;
 
 	fd = open(file_name, O_RDONLY, 0);
-	i = 0;
-	while (i < map->max_depth)
+	y = 0;
+	while (y < map->max_y)
 	{
 		line = get_next_line(fd);
 		split = ft_split(line, ' ');
-		j = 0;
-		while (j < map->max_width)
+		x = 0;
+		while (x < map->max_x)
 		{
-			fill_point(split[j], map, j, i);
-			free(split[j]);
-			j++;
+			fill_point(split[x], map, x, y);
+			free(split[x]);
+			x++;
 		}
 		free(split);
 		free(line);
-		i++;
+		y++;
 	}
 	close(fd);
 }
@@ -136,8 +137,8 @@ static void	fill_point(char *point, t_map *map, int coord_x, int coord_y)
 		map->coordinates[coord_x][coord_y].z = (float)ft_atoi(point);
 		map->coordinates[coord_x][coord_y].color = -1;
 	}
-	if (map->coordinates[coord_x][coord_y].z > map->max_height)
-		map->max_height = map->coordinates[coord_x][coord_y].z;
-	if (map->coordinates[coord_x][coord_y].z < map->min_height)
-		map->min_height = map->coordinates[coord_x][coord_y].z;
+	if (map->coordinates[coord_x][coord_y].z > map->max_z)
+		map->max_z = map->coordinates[coord_x][coord_y].z;
+	if (map->coordinates[coord_x][coord_y].z < map->min_z)
+		map->min_z = map->coordinates[coord_x][coord_y].z;
 }

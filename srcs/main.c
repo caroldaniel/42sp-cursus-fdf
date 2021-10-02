@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:25:52 by cado-car          #+#    #+#             */
-/*   Updated: 2021/09/30 19:38:59 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/02 00:13:34 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int	main(int argc, char **argv)
 	fdf = init_fdf(file_name);
 	render(fdf);
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->image->image, 0, 0);
+	mlx_key_hook(fdf->win, &key_handle, fdf);
 	mlx_loop(fdf->mlx);
 }

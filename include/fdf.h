@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:03:59 by cado-car          #+#    #+#             */
-/*   Updated: 2021/09/30 22:33:38 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/02 00:13:43 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@
 */
 # include "../libft/libft.h"
 
+/*
+** Other fdf libraries
+*/
+# include "keys.h"
+
 /*------STRUCTS-------*/
 
 /*
@@ -55,10 +60,10 @@ typedef struct s_point
 typedef struct s_map
 {
 	t_point	**coordinates;
-	int		max_width;
-	int		max_depth;
-	int		max_height;
-	int		min_height;
+	int		max_x;
+	int		max_y;
+	int		max_z;
+	int		min_z;
 }	t_map;
 
 /*
@@ -71,27 +76,23 @@ typedef struct s_image
 	int		line_bytes;
 	int		endian;
 	char	*buffer;
+	t_point	**coordinates;
+	int		max_u;
+	int		max_v;
 }	t_image;
-
-/*
-** line data structure
-*/
-typedef struct s_line
-{
-	t_point	start;
-	t_point	end;
-}	t_line;
 
 /*
 ** Camera data structure
 */
 typedef struct s_cam
 {
+	int		projection;
 	int		scale_factor;
 	int		move_x;
 	int		move_y;
-	float	center_x;
-	float	center_y;
+	double	alpha;
+	double	beta;
+	double	gamma;
 }	t_cam;
 
 /*
@@ -105,7 +106,6 @@ typedef struct s_fdf
 	int		win_y;
 	void	*win;
 	t_image	*image;
-	t_line	*line;
 	t_cam	*cam;
 }	t_fdf;
 
@@ -118,12 +118,13 @@ typedef struct s_fdf
 # define WINDOW_WIDTH		800
 # define WINDOW_HEIGHT		600
 # define MAX_PIXEL			WINDOW_WIDTH * WINDOW_HEIGHT
-# define SCALE				20
 
 /*
-** Conversion bases
+** Conversion bases & angles in rad
 */
 # define HEXADECIMAL_L_BASE	"0123456789abcdef"
+# define ANG_1				M_PI / 180
+# define ANG_30				M_PI / 6 
 
 /*
 ** Math
@@ -131,6 +132,13 @@ typedef struct s_fdf
 # define ABS(a)		((a < 0) ? -a : a)
 # define MAX(a, b)	((a > b) ? a : b)
 # define MIN(a, b)	((a < b) ? a : b)
+
+
+enum e_projection
+{
+	ISOMETRIC,
+	PERSPECTIVE
+};
 
 /*-----FUNCTIONS------*/
 
@@ -149,30 +157,36 @@ void	error(int exit_code);
 */
 t_fdf	*init_fdf(char *file_name);
 t_map	*init_map(void);
-t_point	init_point(void);
-t_image	*init_image(void *mlx);
-t_line	*init_line(t_point start, t_point end);
-t_cam	*init_cam(void);
+t_image	*init_image(void *mlx, t_map *map);
+t_cam	*init_cam(t_map *map);
 
 /*
 ** Initialization utilities
 */
 t_point	**init_coordinates(int width, int depth);
+void	center_to_origin(t_map *map);
 float	scale_to_fit(t_map *map);
+void	transfer_coordinates(t_fdf *fdf);
 
 /*
 ** Drawing functions
 */
 void	render(t_fdf *fdf);
-void	project_line(t_fdf *fdf);
-void    draw_line(t_fdf *fdf, t_point start, t_point end);
-void	pixel_to_image(t_fdf *fdf, float x, float y, int color);
+void	draw_image(t_image *image, int max_x, int max_y);
+void	bresenham(t_image *image, t_point start, t_point end);
+void	pixel_to_image(t_image *image, float x, float y, int color);
+void	clear_image(t_image *image, int max_x, int max_y);
 
 /*
-** Projection math functions
+** Transformation functions
 */
-void	coordinates_to_origin(t_map *map);
-void	scale(t_fdf *fdf);
-void	translate(t_fdf *fdf);
+void	transform(t_fdf *fdf, int max_x, int max_y);
+void	rotate(t_fdf *fdf, int max_x, int max_y);
+void	project(t_fdf *fdf, int max_x, int max_y);
+
+/*
+** Key handle functions
+*/
+int		key_handle(int keycode, t_fdf *fdf);
 
 #endif
