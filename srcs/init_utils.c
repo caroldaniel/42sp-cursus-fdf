@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:54:44 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/01 23:53:10 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/02 10:05:08 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,25 +68,4 @@ float	scale_to_fit(t_map *map)
 	scale_x = WINDOW_WIDTH / map->max_x;
 	scale_y = WINDOW_HEIGHT / map->max_y;
 	return (MIN(scale_x, scale_y));
-}
-
-void	transfer_coordinates(t_fdf *fdf)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < fdf->map->max_y)
-	{
-		x = 0;
-		while (x < fdf->map->max_x)
-		{
-			fdf->map->coordinates[x][y].x = fdf->image->coordinates[x][y].x;
-			fdf->map->coordinates[x][y].y = fdf->image->coordinates[x][y].y;
-			fdf->map->coordinates[x][y].z = fdf->image->coordinates[x][y].z;
-			fdf->map->coordinates[x][y].color = fdf->image->coordinates[x][y].color;
-			x++;
-		}
-		y++;
-	}
 }

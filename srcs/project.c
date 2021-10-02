@@ -6,34 +6,52 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 20:36:00 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/01 23:19:54 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/02 13:52:11 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
-static void	isometric(t_point *point);
+static void	isometric(t_line *line);
+static void	perspective(t_line *line);
 
-void	project(t_fdf *fdf, int max_x, int max_y)
+void	project(t_cam *cam, t_line *line)
 {
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < max_y)
+	if (cam->projection == ISOMETRIC)
+		isometric(line);
+	else if (cam->projection == PERSPECTIVE)
 	{
-		x = 0;
-		while (x < max_x)
-		{
-			if (fdf->cam->projection == ISOMETRIC)
-				isometric(&fdf->image->coordinates[x][y]);
-			x++;
-		}
-		y++;
+		perspective(line);
+		cam->move_y += 2;
 	}
 }
 
-static void	isometric(t_point *point)
+static void	isometric(t_line *line)
 {
-	point->x = (point->x - point->y) * cos(ANG_30);
-	point->y = (point->x + point->y) * sin(ANG_30) - point->z;
+	t_point	new_start;
+	t_point	new_end;
+	
+	new_start.x = (line->start.x - line->start.y) * cos(ANG_30);
+	new_start.y = (line->start.x + line->start.y) * sin(ANG_30) - \
+		line->start.z;
+	line->start.x = new_start.x;
+	line->start.y = new_start.y;
+	new_end.x = (line->end.x - line->end.y) * cos(ANG_30);
+	new_end.y = (line->end.x + line->end.y) * sin(ANG_30) - line->end.z;
+	line->end.x = new_end.x;
+	line->end.y = new_end.y;
+}
+
+static void	perspective(t_line *line)
+{
+	t_point	new_start;
+	t_point	new_end;
+
+	new_start.x = line->start.x / line->start.y;
+	new_start.y = line->start.z / line->start.y;
+	line->start.x = new_start.x;
+	line->start.y = new_start.y;
+	new_end.x = line->end.x / line->end.y;
+	new_end.y = line->end.z / line->end.y;
+	line->end.x = new_end.x;
+	line->end.y = new_end.y;
 }

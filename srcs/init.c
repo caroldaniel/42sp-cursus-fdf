@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:36:24 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/01 23:16:58 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/02 10:06:12 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_fdf	*init_fdf(char *file_name)
 	fdf->win_x = WINDOW_WIDTH;
 	fdf->win_y = WINDOW_HEIGHT;
 	fdf->win = mlx_new_window(fdf->mlx, fdf->win_x, fdf->win_y, WINDOW_NAME);
-	fdf->image = init_image(fdf->mlx, fdf->map);
+	fdf->image = init_image(fdf->mlx);
 	fdf->cam = init_cam(fdf->map);
 	return (fdf);
 }
@@ -44,7 +44,7 @@ t_map	*init_map(void)
 	return (map);
 }
 
-t_image	*init_image(void *mlx, t_map *map)
+t_image	*init_image(void *mlx)
 {
 	t_image	*image;
 
@@ -54,7 +54,7 @@ t_image	*init_image(void *mlx, t_map *map)
 	image->image = mlx_new_image(mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	image->buffer = mlx_get_data_addr(image->image, &image->pixel_bits, \
 			&image->line_bytes, &image->endian);
-	image->coordinates = init_coordinates(map->max_x, map->max_y);
+	image->line = NULL;
 	return (image);
 }
 
@@ -73,4 +73,22 @@ t_cam	*init_cam(t_map *map)
 	cam->beta = 0;
 	cam->gamma = 0;
 	return (cam);
+}
+
+t_line	*init_line(t_point start, t_point end)
+{
+	t_line	*line;
+
+	line = malloc(sizeof(t_line));
+	if (!line)
+		return (NULL);
+	line->start.x = start.x;
+	line->start.y = start.y;
+	line->start.z = start.z;
+	line->start.color = start.color;
+	line->end.x = end.x;
+	line->end.y = end.y;
+	line->end.z = end.z;
+	line->end.color = end.z;
+	return (line);
 }

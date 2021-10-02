@@ -1,41 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image.c                                            :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 19:02:49 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/01 23:53:03 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/02 10:40:49 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 
-void	draw_image(t_image *image, int max_x, int max_y)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < max_y)
-	{
-		x = 0;
-		while (x < max_x)
-		{
-			if (x < max_x - 1)
-				bresenham(image, image->coordinates[x][y], \
-					image->coordinates[x + 1][y]);
-			if (y < max_x - 1)
-				bresenham(image, image->coordinates[x][y], \
-					image->coordinates[x][y + 1]);
-			x++;
-		}
-		y++;
-	}
-}
-
-void	bresenham(t_image *image, t_point start, t_point end)
+void	bresenham(t_fdf *fdf, t_point start, t_point end)
 {
 	float	x_step;
 	float	y_step;
@@ -49,7 +26,8 @@ void	bresenham(t_image *image, t_point start, t_point end)
 	while ((int)(start.x - end.x) || (int)(start.y - end.y))
 	{
 		if (start.x > 0 && start.y > 0)
-			pixel_to_image(image, start.x, start.y, start.color);
+			mlx_pixel_put(fdf->mlx, fdf->win, start.x, start.y, start.color);
+			// pixel_to_image(fdf->image, start.x, start.y, start.color);
 		start.x += x_step;
 		start.y += y_step;
 	}
@@ -78,10 +56,7 @@ void	pixel_to_image(t_image *image, float x, float y, int color)
 	}
 }
 
-void	clear_image(t_image *image, int max_x, int max_y)
+void	clear_image(t_image *image, int image_size)
 {
-	int	size;
-
-	size = max_x * max_y * image->pixel_bits;
-	ft_bzero(image->buffer, size);
+	ft_bzero(image->buffer, image_size * image->pixel_bits);
 }

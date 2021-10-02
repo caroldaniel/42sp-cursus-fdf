@@ -6,53 +6,63 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 23:02:44 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/01 23:50:27 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/02 13:13:44 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
-static void	rotate_x(t_point *point, double angle);
-static void	rotate_y(t_point *point, double angle);
-static void	rotate_z(t_point *point, double angle);
+static void	rotate_x(t_line *line, double angle);
+static void	rotate_y(t_line *line, double angle);
+static void	rotate_z(t_line *line, double angle);
 
-void	rotate(t_fdf *fdf, int max_x, int max_y)
+void	rotate(t_cam *cam, t_line *line)
 {
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < max_y)
-	{
-		x = 0;
-		while (x < max_x)
-		{
-			rotate_x(&fdf->image->coordinates[x][y], fdf->cam->alpha);
-			rotate_y(&fdf->image->coordinates[x][y], fdf->cam->beta);
-			rotate_z(&fdf->image->coordinates[x][y], fdf->cam->gamma);
-			x++;
-		}
-		y++;
-	}
+	rotate_x(line, cam->alpha);
+	rotate_y(line, cam->beta);
+	rotate_z(line, cam->gamma);
 }
 
-static void	rotate_x(t_point *point, double angle)
+static void	rotate_x(t_line *line, double angle)
 {
-	point->x = point->x;
-	point->y = point->y * cos(angle) - point->z * sin(angle);
-	point->z = point->y * sin(angle) + point->z * cos(angle);
+	t_point	new_start;
+	t_point	new_end;
+	
+	new_start.y = line->start.y * cos(angle) - line->start.z * sin(angle);
+	new_start.z = line->start.y * sin(angle) + line->start.z * cos(angle);
+	line->start.y = new_start.y;
+	line->start.z = new_start.z;
+	new_end.y = line->end.y * cos(angle) - line->end.z * sin(angle);
+	new_end.z = line->end.y * sin(angle) + line->end.z * cos(angle);
+	line->end.y = new_end.y;
+	line->end.z = new_end.z;
 }
 
-static void	rotate_y(t_point *point, double angle)
+static void	rotate_y(t_line *line, double angle)
 {
-	point->x = point->x * cos(angle) + point->z * sin(angle);
-	point->y = point->y;
-	point->z = point->x * sin(angle) + point->z * cos(angle);
-
+	t_point	new_start;
+	t_point	new_end;
+	
+	new_start.x = line->start.x * cos(angle) + line->start.z * sin(angle);
+	new_start.z = - line->start.x * sin(angle) + line->start.z * cos(angle);
+	line->start.x = new_start.x;
+	line->start.z = new_start.z;
+	new_end.x = line->end.x * cos(angle) + line->end.z * sin(angle);
+	new_end.z = - line->end.x * sin(angle) + line->end.z * cos(angle);
+	line->end.x = new_end.x;
+	line->end.z = new_end.z;
 }
 
-static void	rotate_z(t_point *point, double angle)
+static void	rotate_z(t_line *line, double angle)
 {
-	point->x = point->x * cos(angle) - point->y * sin(angle);
-	point->y = point->x * sin(angle) + point->y * cos(angle);
-	point->z = point->z;
+	t_point	new_start;
+	t_point	new_end;
+	
+	new_start.x = line->start.x * cos(angle) - line->start.y * sin(angle);
+	new_start.y = line->start.x * sin(angle) + line->start.y * cos(angle);
+	line->start.x = new_start.x;
+	line->start.y = new_start.y;
+	new_end.x = line->end.x * cos(angle) - line->end.y * sin(angle);
+	new_end.y = line->end.x * sin(angle) + line->end.y * cos(angle);
+	line->end.x = new_end.x;
+	line->end.y = new_end.y;
 }
