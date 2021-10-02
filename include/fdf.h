@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:03:59 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/02 10:41:56 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/02 14:55:24 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,8 +128,8 @@ typedef struct s_fdf
 ** Window basic configuration
 */
 # define WINDOW_NAME	 	"fdf"
-# define WINDOW_WIDTH		800
-# define WINDOW_HEIGHT		600
+# define WINDOW_WIDTH		1200
+# define WINDOW_HEIGHT		900
 # define MAX_PIXEL			WINDOW_WIDTH * WINDOW_HEIGHT
 
 /*

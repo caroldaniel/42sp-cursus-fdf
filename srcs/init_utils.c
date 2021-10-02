@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:54:44 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/02 10:05:08 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/02 16:23:08 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,12 @@ float	scale_to_fit(t_map *map)
 {
 	float	scale_x;
 	float	scale_y;
+	float	scale_factor;
 
 	scale_x = WINDOW_WIDTH / map->max_x;
 	scale_y = WINDOW_HEIGHT / map->max_y;
-	return (MIN(scale_x, scale_y));
+	scale_factor = MIN(scale_x, scale_y);
+	if (scale_factor < 1)
+		return (1);
+	return (scale_factor / 2);
 }

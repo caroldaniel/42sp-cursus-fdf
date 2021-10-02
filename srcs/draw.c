@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 19:02:49 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/02 10:40:49 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/02 16:28:27 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	bresenham(t_fdf *fdf, t_point start, t_point end)
 	y_step /= max;
 	while ((int)(start.x - end.x) || (int)(start.y - end.y))
 	{
-		if (start.x > 0 && start.y > 0)
-			mlx_pixel_put(fdf->mlx, fdf->win, start.x, start.y, start.color);
-			// pixel_to_image(fdf->image, start.x, start.y, start.color);
+		if (start.x > 0 && start.y > 0 && start.x < WINDOW_WIDTH && start.y < \
+				WINDOW_HEIGHT)
+			pixel_to_image(fdf->image, start.x, start.y, start.color);
 		start.x += x_step;
 		start.y += y_step;
 	}
@@ -37,9 +37,7 @@ void	pixel_to_image(t_image *image, float x, float y, int color)
 {
 	int	pixel;
 
-	pixel = (int)((y * image->line_bytes) + (x * 4));
-	if (pixel < 0 || pixel > (MAX_PIXEL * 4))
-		return ;
+	pixel = ((int)y * image->line_bytes) + ((int)x * 4);
 	if (image->endian == 1)
 	{
 		image->buffer[pixel + 0] = (color >> 24);
@@ -58,5 +56,5 @@ void	pixel_to_image(t_image *image, float x, float y, int color)
 
 void	clear_image(t_image *image, int image_size)
 {
-	ft_bzero(image->buffer, image_size * image->pixel_bits);
+	ft_bzero(image->buffer, image_size);
 }

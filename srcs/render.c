@@ -6,26 +6,23 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 19:40:08 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/02 13:18:12 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/02 16:27:17 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 static void	render_line(t_fdf *fdf, t_point start, t_point end);
-#include <stdio.h>
+
 void	render(t_fdf *fdf)
 {
 	int	x;
 	int	y;
 
-	mlx_clear_window(fdf->mlx, fdf->win);
-	clear_image(fdf->image, fdf->map->max_x * fdf->map->max_y);
+	clear_image(fdf->image, MAX_PIXEL * 4);
 	y = 0;
-	while (y < 1)
 	while (y < fdf->map->max_y)
 	{
 		x = 0;
-		while (x < 1)
 		while (x < fdf->map->max_x)
 		{
 			if (x < fdf->map->max_x - 1)
@@ -38,7 +35,7 @@ void	render(t_fdf *fdf)
 		}
 		y++;
 	}
-	// mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->image->image, 0, 0);
+	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->image->image, 0, 0);
 }
 
 static void	render_line(t_fdf *fdf, t_point start, t_point end)

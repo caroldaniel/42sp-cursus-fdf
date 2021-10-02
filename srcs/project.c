@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 20:36:00 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/02 13:52:11 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/02 16:26:59 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	isometric(t_line *line)
 {
 	t_point	new_start;
 	t_point	new_end;
-	
+
 	new_start.x = (line->start.x - line->start.y) * cos(ANG_30);
 	new_start.y = (line->start.x + line->start.y) * sin(ANG_30) - \
 		line->start.z;
