@@ -22,7 +22,8 @@
 <h3 align=center>
 Mandatory
 </h3>
-<i>
+
+> <i> fdf <b>must</b> have: 
 > - isometric projection;
 > - Exiting of screen by pressing 'ESC';
 > - Use of MinilibX's 'images' is strongly reccomended.</i>
@@ -30,8 +31,9 @@ Mandatory
 <h3 align=center>
 Bonus
 </h3>
-<i>
-> - Extra projection; 
+
+> <i> fdf <b>can</b> have: 
+> - Extra projections; 
 > - Zoom in and map translation;
 > - Rotate map.<i>
 
