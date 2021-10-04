@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:36:24 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/02 17:23:57 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/03 17:01:44 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ t_cam	*init_cam(t_map *map)
 		return (NULL);
 	cam->projection = ISOMETRIC;
 	cam->scale_factor = scale_to_fit(map);
+	cam->scale_z = 1;
 	cam->move_x = WINDOW_WIDTH / 2;
 	cam->move_y = WINDOW_HEIGHT / 2;
 	cam->alpha = 0;
@@ -75,7 +76,7 @@ t_cam	*init_cam(t_map *map)
 	return (cam);
 }
 
-t_line	*init_line(t_point start, t_point end)
+t_line	*init_line(t_point start, t_point end, float scale_z)
 {
 	t_line	*line;
 
@@ -84,11 +85,11 @@ t_line	*init_line(t_point start, t_point end)
 		return (NULL);
 	line->start.x = start.x;
 	line->start.y = start.y;
-	line->start.z = start.z;
+	line->start.z = start.z * scale_z;
 	line->start.color = start.color;
 	line->end.x = end.x;
 	line->end.y = end.y;
-	line->end.z = end.z;
-	line->end.color = end.z;
+	line->end.z = end.z * scale_z;
+	line->end.color = end.color;
 	return (line);
 }

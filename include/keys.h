@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 21:15:21 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/02 13:53:51 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/03 17:20:49 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@
 # define KEY_X		120
 # define KEY_P		112
 # define KEY_I		105
+# define KEY_O		111
+# define KEY_L		108
+# define KEY_R		114
 # define KEY_ESC    65307
 
 #endif

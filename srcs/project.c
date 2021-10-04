@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 20:36:00 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/02 16:58:13 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/03 17:51:00 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	project(t_cam *cam, t_line *line)
 		perspective(line);
 		cam->move_y += 2;
 	}
+	else if (cam->projection == TOP)
+		return ;
 }
 
 static void	isometric(t_line *line)
@@ -46,12 +48,28 @@ static void	perspective(t_line *line)
 	t_point	new_start;
 	t_point	new_end;
 
-	new_start.x = line->start.x / line->start.y;
-	new_start.y = line->start.z / line->start.y;
+	if (line->start.y != 0)
+	{
+		new_start.x = line->start.x / line->start.y;
+		new_start.y = line->start.z / line->start.y;
+	}
+	else
+	{
+		new_start.x = line->start.x;
+		new_start.y = line->start.z;	
+	}
+	if (line->end.y != 0)
+	{
+		new_end.x = line->end.x / line->end.y;
+		new_end.y = line->end.z / line->end.y;
+	}
+	else
+	{
+		new_end.x = line->start.x;
+		new_end.y = line->start.z;		
+	}
 	line->start.x = new_start.x;
 	line->start.y = new_start.y;
-	new_end.x = line->end.x / line->end.y;
-	new_end.y = line->end.z / line->end.y;
 	line->end.x = new_end.x;
 	line->end.y = new_end.y;
 }

@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 19:40:08 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/02 17:27:04 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/03 22:36:29 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,12 @@ void	render(t_fdf *fdf)
 		y++;
 	}
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->image->image, 0, 0);
+	print_menu(fdf);
 }
 
 static void	render_line(t_fdf *fdf, t_point start, t_point end)
 {
-	fdf->image->line = init_line(start, end);
+	fdf->image->line = init_line(start, end, fdf->cam->scale_z);
 	rotate(fdf->cam, fdf->image->line);
 	project(fdf->cam, fdf->image->line);
 	transform(fdf->cam, fdf->image->line);

@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:03:59 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/02 17:18:44 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/03 22:36:18 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 ** Other fdf libraries
 */
 # include "keys.h"
+# include "colors.h"
 
 /*------STRUCTS-------*/
 
@@ -100,6 +101,7 @@ typedef struct s_cam
 {
 	int		projection;
 	float	scale_factor;
+	float	scale_z;
 	float	move_x;
 	float	move_y;
 	double	alpha;
@@ -133,6 +135,13 @@ typedef struct s_fdf
 # define MAX_PIXEL			WINDOW_WIDTH * WINDOW_HEIGHT
 
 /*
+** Colors configuration
+*/
+# define LINE_DEFAULT		C_WHITE
+# define BACKGROUND_DEFAULT	C_GREY
+# define TEXT_DEFAULT		C_WHITE
+
+/*
 ** Conversion bases & useful angles in rad
 */
 # define HEXADECIMAL_L_BASE	"0123456789abcdef"
@@ -154,7 +163,8 @@ typedef struct s_fdf
 enum e_projection
 {
 	ISOMETRIC,
-	PERSPECTIVE
+	PERSPECTIVE,
+	TOP
 };
 
 /*-----FUNCTIONS------*/
@@ -175,7 +185,7 @@ void	error(int exit_code);
 t_fdf	*init_fdf(char *file_name);
 t_map	*init_map(void);
 t_image	*init_image(void *mlx);
-t_line	*init_line(t_point start, t_point end);
+t_line	*init_line(t_point start, t_point end, float scale_z);
 t_cam	*init_cam(t_map *map);
 
 /*
@@ -184,6 +194,7 @@ t_cam	*init_cam(t_map *map);
 t_point	**init_coordinates(int width, int depth);
 void	center_to_origin(t_map *map);
 float	scale_to_fit(t_map *map);
+void	reset(t_fdf *fdf);
 
 /*
 ** Drawing functions
@@ -193,6 +204,7 @@ void	draw_image(t_image *image, int max_x, int max_y);
 void	bresenham(t_fdf *fdf, t_point start, t_point end);
 void	pixel_to_image(t_image *image, float x, float y, int color);
 void	clear_image(t_image *image, int image_size);
+void	print_menu(t_fdf *fdf);
 
 /*
 ** Transformation functions
