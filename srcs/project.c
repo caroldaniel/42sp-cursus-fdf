@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 20:36:00 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/03 23:07:28 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 01:59:31 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,29 +44,18 @@ static void	perspective(t_line *line)
 {
 	t_point	new_start;
 	t_point	new_end;
+	double	z;
 
-	if (line->start.y != 0)
-	{
-		new_start.x = line->start.x / line->start.y;
-		new_start.y = line->start.z / line->start.y;
-	}
-	else
-	{
-		new_start.x = line->start.x;
-		new_start.y = line->start.z;	
-	}
-	if (line->end.y != 0)
-	{
-		new_end.x = line->end.x / line->end.y;
-		new_end.y = line->end.z / line->end.y;
-	}
-	else
-	{
-		new_end.x = line->start.x;
-		new_end.y = line->start.z;		
-	}
+	rotate_x(line, 3 * -ANG_45);
+	z = line->start.z + line->transform_z;
+	new_start.x = line->start.x / z;
+	new_start.y = line->start.y / z;
 	line->start.x = new_start.x;
-	line->start.y = new_start.y;
+	line->start.y = -new_start.y;
+	z = line->end.z + line->transform_z;
+	new_end.x = line->end.x / z;
+	new_end.y = line->end.y / z;
 	line->end.x = new_end.x;
-	line->end.y = new_end.y;
+	line->end.y = -new_end.y;
+	scale(line, 8);
 }

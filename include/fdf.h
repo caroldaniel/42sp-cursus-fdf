@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:03:59 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/04 00:19:06 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 01:43:03 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct s_line
 {
 	t_point	start;
 	t_point end;
+	float	transform_z;
 }	t_line;
 
 /*
@@ -185,7 +186,7 @@ void	error(int exit_code);
 t_fdf	*init_fdf(char *file_name);
 t_map	*init_map(void);
 t_image	*init_image(void *mlx);
-t_line	*init_line(t_point start, t_point end, float scale_z);
+t_line	*init_line(t_point start, t_point end, t_fdf *fdf);
 t_cam	*init_cam(t_map *map);
 
 /*
@@ -212,8 +213,13 @@ void	print_menu(t_fdf *fdf);
 ** Transformation functions
 */
 void	rotate(t_cam *cam, t_line *line);
+void	rotate_x(t_line *line, double angle);
+void	rotate_y(t_line *line, double angle);
+void	rotate_z(t_line *line, double angle);
 void	project(t_cam *cam, t_line *line);
 void	transform(t_cam *cam, t_line *line);
+void	scale(t_line *line, int scale_factor);
+void	translate(t_line *line, int move_x, int move_y);
 
 /*
 ** Key handle functions

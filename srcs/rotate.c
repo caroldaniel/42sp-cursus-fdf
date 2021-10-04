@@ -6,14 +6,11 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 23:02:44 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/02 16:28:15 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 01:26:15 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
-static void	rotate_x(t_line *line, double angle);
-static void	rotate_y(t_line *line, double angle);
-static void	rotate_z(t_line *line, double angle);
 
 void	rotate(t_cam *cam, t_line *line)
 {
@@ -22,7 +19,7 @@ void	rotate(t_cam *cam, t_line *line)
 	rotate_z(line, cam->gamma);
 }
 
-static void	rotate_x(t_line *line, double angle)
+void	rotate_x(t_line *line, double angle)
 {
 	t_point	new_start;
 	t_point	new_end;
@@ -37,7 +34,7 @@ static void	rotate_x(t_line *line, double angle)
 	line->end.z = new_end.z;
 }
 
-static void	rotate_y(t_line *line, double angle)
+void	rotate_y(t_line *line, double angle)
 {
 	t_point	new_start;
 	t_point	new_end;
@@ -52,7 +49,7 @@ static void	rotate_y(t_line *line, double angle)
 	line->end.z = new_end.z;
 }
 
-static void	rotate_z(t_line *line, double angle)
+void	rotate_z(t_line *line, double angle)
 {
 	t_point	new_start;
 	t_point	new_end;

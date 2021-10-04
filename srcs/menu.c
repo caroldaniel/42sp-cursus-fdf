@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 22:29:04 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/03 23:04:31 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 01:54:29 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	print_menu(t_fdf *fdf)
 	mlx_string_put(fdf->mlx, fdf->win, 50, y += 20, TEXT_DEFAULT, "Rotate Y axis: press '1' or '3'");
 	mlx_string_put(fdf->mlx, fdf->win, 50, y += 20, TEXT_DEFAULT, "Rotate Z axis: press '4' or '6'");
 	mlx_string_put(fdf->mlx, fdf->win, 50, y += 20, TEXT_DEFAULT, "Scale Altitude: press 'x' or 'z'");
+	mlx_string_put(fdf->mlx, fdf->win, 50, y += 20, TEXT_DEFAULT, "(Altitude scale limited to 100%)");
 	mlx_string_put(fdf->mlx, fdf->win, 50, y += 35, TEXT_DEFAULT, "To change projection view:");
 	mlx_string_put(fdf->mlx, fdf->win, 50, y += 20, TEXT_DEFAULT, "Isometric: press 'I'");
 	mlx_string_put(fdf->mlx, fdf->win, 50, y += 20, TEXT_DEFAULT, "Perspective: press 'P'");

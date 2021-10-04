@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:36:24 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/04 00:14:34 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 01:38:18 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ t_cam	*init_cam(t_map *map)
 	return (cam);
 }
 
-t_line	*init_line(t_point start, t_point end, float scale_z)
+t_line	*init_line(t_point start, t_point end, t_fdf *fdf)
 {
 	t_line	*line;
 
@@ -94,11 +94,12 @@ t_line	*init_line(t_point start, t_point end, float scale_z)
 		return (NULL);
 	line->start.x = start.x;
 	line->start.y = start.y;
-	line->start.z = start.z * scale_z;
+	line->start.z = start.z * fdf->cam->scale_z;
 	line->start.color = start.color;
 	line->end.x = end.x;
 	line->end.y = end.y;
-	line->end.z = end.z * scale_z;
+	line->end.z = end.z * fdf->cam->scale_z;
 	line->end.color = end.color;
+	line->transform_z = (fdf->map->max_z - fdf->map->min_z);
 	return (line);
 }

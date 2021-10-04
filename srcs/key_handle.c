@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 23:39:42 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/03 23:52:46 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 01:50:49 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ static void	key_scale(int keycode, t_fdf *fdf)
 		fdf->cam->scale_factor += 1;
 	else if (keycode == KEY_MINUS)
 		fdf->cam->scale_factor -= 1;
-	else if (keycode == KEY_Z)
+	else if (keycode == KEY_Z && fdf->cam->scale_z > -1)
 		fdf->cam->scale_z -= 0.1;
-	else if (keycode == KEY_X)
+	else if (keycode == KEY_X && fdf->cam->scale_z < 1)
 		fdf->cam->scale_z += 0.1;
 }
 
