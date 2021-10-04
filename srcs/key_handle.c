@@ -6,12 +6,11 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 23:39:42 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/04 01:50:49 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 02:05:12 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
-// #include <stdio.h>
 static void	key_translate(int keycode, t_fdf *fdf);
 static void	key_scale(int keycode, t_fdf *fdf);
 static void	key_rotate(int keycode, t_fdf *fdf);
@@ -35,7 +34,6 @@ int	key_handle(int keycode, t_fdf *fdf)
 	else if (keycode == KEY_R)
 		reset(fdf);
 	render(fdf);
-	// printf("%i\n", keycode);
 	return (0);
 }
 

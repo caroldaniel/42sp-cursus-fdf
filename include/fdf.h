@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:03:59 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/04 01:43:03 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 02:15:44 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ typedef struct s_fdf
 */
 # define LINE_DEFAULT		C_WHITE
 # define BACKGROUND_DEFAULT	C_GREY
-# define TEXT_DEFAULT		C_WHITE
+# define C_TEXT				C_WHITE
 
 /*
 ** Conversion bases & useful angles in rad

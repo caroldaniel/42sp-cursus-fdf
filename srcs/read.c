@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:29:41 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/04 00:19:34 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 02:08:27 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,6 @@ t_map	*read_map(char *file_name)
 	if (!map)
 		return (NULL);
 	map->max_x = get_width(file_name);
-	if (!map->max_x)
-	{
-		free(map);
-		return (NULL);		
-	}
 	map->max_y = get_depth(file_name);
 	map->coordinates = init_coordinates(map->max_x, map->max_y);
 	if (!map->coordinates)
