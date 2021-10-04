@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:03:59 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/04 02:15:44 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 08:52:58 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,23 @@ typedef struct s_line
 	t_point end;
 	float	transform_z;
 }	t_line;
+
+/*
+** Color struct: valid for line.
+*/
+typedef struct s_color
+{
+	int	start_r;
+	int	start_g;
+	int	start_b;
+	int	end_r;
+	int	end_g;
+	int	end_b;
+	int	delta_r;
+	int	delta_g;
+	int	delta_b;
+	int	steps;
+}	t_color;
 
 /*
 ** Image data structure: holds information on the image pointers given by MiniLibX
@@ -208,6 +225,7 @@ void	bresenham(t_fdf *fdf, t_point start, t_point end);
 void	pixel_to_image(t_image *image, float x, float y, int color);
 void	clear_image(t_image *image, int image_size);
 void	print_menu(t_fdf *fdf);
+int	get_color(t_point start, t_point end, int i_color, int max);
 
 /*
 ** Transformation functions

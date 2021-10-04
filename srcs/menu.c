@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 22:29:04 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/04 02:15:09 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 07:59:41 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	print_menu(t_fdf *fdf)
 	win = fdf->win;
 	projection = get_projection_name(fdf);
 	mlx_string_put(mlx, win, 50, y += 50, C_TEXT, projection);
+	mlx_string_put(mlx, win, 50, y += 35, C_TEXT, "Press 'ESC' to close");
 	mlx_string_put(mlx, win, 50, y += 35, C_TEXT, "Zoom: press '-' or '+'");
 	mlx_string_put(mlx, win, 50, y += 20, C_TEXT, "Move: press arrow keys");
 	mlx_string_put(mlx, win, 50, y += 20, C_TEXT, "Rotate X: press '2' or '8'");

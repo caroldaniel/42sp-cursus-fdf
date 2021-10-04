@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 19:02:49 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/04 02:14:31 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 13:46:43 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ void	bresenham(t_fdf *fdf, t_point start, t_point end)
 	float	x_step;
 	float	y_step;
 	int		max;
+	int		i_color;
 
 	x_step = end.x - start.x;
 	y_step = end.y - start.y;
 	max = MAX(ABS(x_step), ABS(y_step));
 	x_step /= max;
 	y_step /= max;
+	i_color = 0;
 	while ((int)(start.x - end.x) || (int)(start.y - end.y))
 	{
 		if (start.x > 0 && start.y > 0 && start.x < WINDOW_WIDTH && start.y < \
@@ -30,6 +32,7 @@ void	bresenham(t_fdf *fdf, t_point start, t_point end)
 			pixel_to_image(fdf->image, start.x, start.y, start.color);
 		start.x += x_step;
 		start.y += y_step;
+		start.color = get_color(start, end, max, i_color++);
 	}
 }
 
