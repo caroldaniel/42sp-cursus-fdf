@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 20:36:00 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/04 02:04:33 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 07:23:12 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ static void	perspective(t_line *line)
 	new_end.y = line->end.y / z;
 	line->end.x = new_end.x;
 	line->end.y = -new_end.y;
-	scale(line, 8);
+	scale(line, line->transform_z);
 }
