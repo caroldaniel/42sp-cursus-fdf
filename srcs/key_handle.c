@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 23:39:42 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/03 17:25:35 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/03 23:52:46 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	key_project(int keycode, t_fdf *fdf);
 int	key_handle(int keycode, t_fdf *fdf)
 {
 	if (keycode == KEY_ESC)
-		exit(0);
+		close_all(fdf, 0);
 	else if (keycode == KEY_RIGHT || keycode == KEY_LEFT || keycode == KEY_UP \
 		|| keycode == KEY_DOWN)
 		key_translate(keycode, fdf);

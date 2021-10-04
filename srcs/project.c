@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 20:36:00 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/03 17:51:00 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/03 23:07:28 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ void	project(t_cam *cam, t_line *line)
 	if (cam->projection == ISOMETRIC)
 		isometric(line);
 	else if (cam->projection == PERSPECTIVE)
-	{
 		perspective(line);
-		cam->move_y += 2;
-	}
 	else if (cam->projection == TOP)
 		return ;
 }

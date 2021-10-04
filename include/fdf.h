@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:03:59 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/03 22:36:18 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 00:19:06 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,12 +189,14 @@ t_line	*init_line(t_point start, t_point end, float scale_z);
 t_cam	*init_cam(t_map *map);
 
 /*
-** Initialization utilities
+** Initialization and closing utilities
 */
 t_point	**init_coordinates(int width, int depth);
 void	center_to_origin(t_map *map);
 float	scale_to_fit(t_map *map);
 void	reset(t_fdf *fdf);
+void	close_all(t_fdf *fdf, int exit_code);
+void	close_map(t_fdf *fdf, int exit_code);
 
 /*
 ** Drawing functions

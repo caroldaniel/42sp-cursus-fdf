@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:29:41 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/03 18:10:14 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 00:19:34 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,20 @@ t_map	*read_map(char *file_name)
 	close(fd);
 	map = init_map();
 	if (!map)
-		error(3);
+		return (NULL);
 	map->max_x = get_width(file_name);
+	if (!map->max_x)
+	{
+		free(map);
+		return (NULL);		
+	}
 	map->max_y = get_depth(file_name);
 	map->coordinates = init_coordinates(map->max_x, map->max_y);
 	if (!map->coordinates)
-		error(3);
+	{
+		free(map);
+		return (NULL);
+	}
 	get_points(file_name, map);
 	center_to_origin(map);
 	return (map);
@@ -48,7 +56,7 @@ static int	get_width(char *file_name)
 	fd = open(file_name, O_RDONLY, 0);
 	line = get_next_line(fd);
 	if (!line)
-		error(4);
+		return (0);
 	width = (int)ft_split_count(line, ' ');
 	free(line);
 	while (1)
@@ -58,7 +66,7 @@ static int	get_width(char *file_name)
 			break ;
 		new_width = (int)ft_split_count(line, ' ');
 		if (width != new_width)
-			error(4);
+			return (0);
 		free(line);
 	}
 	close(fd);

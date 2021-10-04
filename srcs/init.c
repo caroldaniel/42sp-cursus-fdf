@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:36:24 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/03 17:01:44 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 00:14:34 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,21 @@ t_fdf	*init_fdf(char *file_name)
 	if (!fdf)
 		error(3);
 	fdf->map = read_map(file_name);
+	if (!fdf->map)
+	{
+		free(fdf);
+		error(4);
+	}
 	fdf->mlx = mlx_init();
 	fdf->win_x = WINDOW_WIDTH;
 	fdf->win_y = WINDOW_HEIGHT;
 	fdf->win = mlx_new_window(fdf->mlx, fdf->win_x, fdf->win_y, WINDOW_NAME);
 	fdf->image = init_image(fdf->mlx);
+	if (!fdf->image)
+		close_map(fdf, 5);
 	fdf->cam = init_cam(fdf->map);
+	if (!fdf->cam)
+		close_all(fdf, 6);
 	return (fdf);
 }
 
