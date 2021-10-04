@@ -47,14 +47,38 @@ The project
 	
 - [`Makefile`](Makefile)
 
-Main functions
-	
-- [`ft_printf.c`](srcs/main.c)
+Header files
+- [`fdf.h`](include/fdf.h)
+- [`keys.h`](include/keys.h)
+- [`colors.h`](include/colors.h)
 
-Parsing functions
+Main function	
+- [`main.c`](srcs/main.c)
 
-- [`ft_convert_c.c`](srcs/read.c)
+Initialization
+- [`init.c`](srcs/init.c)
+- [`init_utils.c`](srcs/init_utils.c)
 
+Parsing and reading
+- [`read.c`](srcs/read.c)
+
+Render and drawing
+- [`render.c`](srcs/render.c)
+- [`draw.c`](srcs/draw.c)
+- [`menu.c`](srcs/menu.c)
+- [`color.c`](srcs/color.c)
+
+Transformation and projections
+- [`rotate.c`](srcs/rotate.c)
+- [`transform.c`](srcs/transform.c)
+- [`project.c`](srcs/project.c)
+
+Key handling
+- [`key_handle.c`](srcs/key_handle.c)
+
+Error management and program closing
+- [`error.c`](srcs/error.c)
+- [`close.c`](srcs/close.c)
 
 ### Features
 
