@@ -22,16 +22,16 @@
 <h3 align=center>
 Mandatory
 </h3>
-
-><i> - isometric projection;
+<i>
+> - isometric projection;
 > - Exiting of screen by pressing 'ESC';
 > - Use of MinilibX's 'images' is strongly reccomended.</i>
 
 <h3 align=center>
 Bonus
 </h3>
-
-><i> - Extra projection; 
+<i>
+> - Extra projection; 
 > - Zoom in and map translation;
 > - Rotate map.<i>
 
