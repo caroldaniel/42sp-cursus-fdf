@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
+
 static int	color_gradient(t_color *color, float progress);
 
 int	get_color(t_color *color, int i_line, int line_size)
