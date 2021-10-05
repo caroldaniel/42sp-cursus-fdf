@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
+
 static char	*get_projection_name(t_fdf *fdf);
 
 void	print_menu(t_fdf *fdf)
