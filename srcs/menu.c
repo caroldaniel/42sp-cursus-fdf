@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 22:29:04 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/05 15:22:07 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/05 20:28:38 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static char	*get_projection_name(t_fdf *fdf)
 {	
 	char	*projection;
 
+	projection = "";
 	if (fdf->cam->projection == ISOMETRIC)
 		projection = "Isometric projection";
 	else if (fdf->cam->projection == PERSPECTIVE)
