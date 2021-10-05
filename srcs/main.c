@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
+
 static int	expose_handle(t_fdf *fdf);
 
 int	main(int argc, char **argv)
