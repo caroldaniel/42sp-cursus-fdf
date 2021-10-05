@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
+
 static void	key_translate(int keycode, t_fdf *fdf);
 static void	key_scale(int keycode, t_fdf *fdf);
 static void	key_rotate(int keycode, t_fdf *fdf);
