@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
+
 static void	isometric(t_line *line);
 static void	perspective(t_line *line);
 
