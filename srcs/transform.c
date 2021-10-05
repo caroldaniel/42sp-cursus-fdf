@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
+
 void	scale(t_line *line, int scale_factor);
 void	translate(t_line *line, int move_x, int move_y);
 
