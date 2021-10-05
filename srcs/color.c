@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 17:26:21 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/05 13:47:19 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/05 15:38:39 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,27 @@ t_color	*color_init(t_point start, t_point end)
 	color->end_r = (C_RED & end.color) >> 16;
 	color->end_g = (C_GREEN & end.color) >> 8;
 	color->end_b = (C_BLUE & end.color);
+	color->delta_r = (color->end_r - color->start_r);
+	color->delta_g = (color->end_g - color->start_g);
+	color->delta_b = (color->end_b - color->start_b);
+	return (color);
+}
+
+t_color	*color_pallet_init(int min_color, int max_color)
+{
+	t_color	*color;
+
+	color = malloc(sizeof(t_color));
+	if (!color)
+		return (NULL);
+	color->start_color = min_color;
+	color->start_r = (C_RED & min_color) >> 16;
+	color->start_g = (C_GREEN & min_color) >> 8;
+	color->start_b = (C_BLUE & min_color);
+	color->end_color = max_color;
+	color->end_r = (C_RED & max_color) >> 16;
+	color->end_g = (C_GREEN & max_color) >> 8;
+	color->end_b = (C_BLUE & max_color);
 	color->delta_r = (color->end_r - color->start_r);
 	color->delta_g = (color->end_g - color->start_g);
 	color->delta_b = (color->end_b - color->start_b);

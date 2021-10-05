@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:36:24 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/04 07:37:01 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/05 16:19:01 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ t_cam	*init_cam(t_map *map)
 	if (!cam)
 		return (NULL);
 	cam->projection = ISOMETRIC;
+	cam->color_pallet = FALSE;
 	cam->scale_factor = scale_to_fit(map);
 	cam->scale_z = 1;
 	cam->move_x = WINDOW_WIDTH / 2;
@@ -94,11 +95,11 @@ t_line	*init_line(t_point start, t_point end, t_fdf *fdf)
 		return (NULL);
 	line->start.x = start.x;
 	line->start.y = start.y;
-	line->start.z = start.z * fdf->cam->scale_z;
+	line->start.z = start.z;
 	line->start.color = start.color;
 	line->end.x = end.x;
 	line->end.y = end.y;
-	line->end.z = end.z * fdf->cam->scale_z;
+	line->end.z = end.z;
 	line->end.color = end.color;
 	line->transform_z = MAX((fdf->map->max_z - fdf->map->min_z), \
 		MAX(fdf->map->max_x, fdf->map->max_y));

@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:03:59 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/05 13:20:42 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/05 15:39:00 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ typedef struct s_image
 typedef struct s_cam
 {
 	int		projection;
+	int		color_pallet;
 	float	scale_factor;
 	float	scale_z;
 	float	move_x;
@@ -177,13 +178,19 @@ typedef struct s_fdf
 # define MIN(a, b)	((a < b) ? a : b)
 
 /*
-** Enumerator for projection names
+** Enumerator for projection names and boolean
 */
 enum e_projection
 {
 	ISOMETRIC,
 	PERSPECTIVE,
 	TOP
+};
+
+enum e_bool
+{
+	FALSE,
+	TRUE
 };
 
 /*-----FUNCTIONS------*/
@@ -217,6 +224,7 @@ void	reset(t_fdf *fdf);
 void	close_all(t_fdf *fdf, int exit_code);
 void	close_map(t_fdf *fdf, int exit_code);
 t_color	*color_init(t_point start, t_point end);
+t_color	*color_pallet_init(int min_color, int max_color);
 
 /*
 ** Drawing functions

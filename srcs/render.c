@@ -6,12 +6,13 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 19:40:08 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/04 01:29:35 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/05 16:59:32 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 static void	render_line(t_fdf *fdf, t_point start, t_point end);
+static void	apply_colors(t_fdf *fdf, t_point *point);
 
 void	render(t_fdf *fdf)
 {
@@ -41,6 +42,10 @@ void	render(t_fdf *fdf)
 
 static void	render_line(t_fdf *fdf, t_point start, t_point end)
 {
+	start.z *= fdf->cam->scale_z;
+	end.z *= fdf->cam->scale_z;
+	apply_colors(fdf, &start);
+	apply_colors(fdf, &end);
 	fdf->image->line = init_line(start, end, fdf);
 	if (!fdf->image->line)
 		close_all(fdf, 7);
@@ -49,4 +54,31 @@ static void	render_line(t_fdf *fdf, t_point start, t_point end)
 	transform(fdf->cam, fdf->image->line);
 	bresenham(fdf, fdf->image->line->start, fdf->image->line->end);
 	free(fdf->image->line);
+}
+
+static void	apply_colors(t_fdf *fdf, t_point *point)
+{
+	t_color	*col;
+
+	col = NULL;
+	if (fdf->cam->color_pallet == FALSE)
+	{
+		if (point->color == -1)
+			point->color = LINE_DEFAULT;
+	}
+	else
+	{
+		if (point->z >= 0)
+		{
+			col = color_pallet_init(BACKGROUND_DEFAULT, C_ORANGY);
+			point->color = get_color(col, ABS(point->z), ABS(fdf->map->max_z));
+			free(col);
+		}
+		else
+		{
+			col = color_pallet_init(BACKGROUND_DEFAULT, C_BLUEY);
+			point->color = get_color(col, ABS(point->z), ABS(fdf->map->max_z));
+			free(col);
+		}
+	}
 }

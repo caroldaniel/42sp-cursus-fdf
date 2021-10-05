@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 23:30:23 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/03 18:19:57 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/05 16:16:45 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,9 @@
 # define C_YELLOW	0xffff00
 # define C_CYAN		0x00ffff
 # define C_PINK		0xff00ff
+
+# define C_ORANGY	0xffa500
+# define C_BLUEY	0x0492c2
+
 
 #endif

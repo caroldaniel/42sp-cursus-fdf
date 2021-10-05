@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:29:41 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/04 23:43:44 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/05 17:06:35 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,25 +94,26 @@ static void	get_points(char *file_name, t_map *map)
 	int		fd;
 	char	*line;
 	char	**split;
-	int		x;
-	int		y;
+	int		coord[2];
 
 	fd = open(file_name, O_RDONLY, 0);
-	y = 0;
-	while (y < map->max_y)
+	coord[1] = 0;
+	while (1)
 	{
 		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
 		split = ft_split(line, ' ');
-		x = 0;
-		while (x < map->max_x)
+		coord[0] = 0;
+		while (coord[0] < map->max_x)
 		{
-			fill_point(split[x], map, x, y);
-			free(split[x]);
-			x++;
+			fill_point(split[coord[0]], map, coord[0], coord[1]);
+			free(split[coord[0]]);
+			coord[0]++;
 		}
 		free(split);
 		free(line);
-		y++;
+		coord[1]++;
 	}
 	close(fd);
 }
@@ -138,7 +139,7 @@ static void	fill_point(char *point, t_map *map, int coord_x, int coord_y)
 	else
 	{
 		map->coordinates[coord_x][coord_y].z = (float)ft_atoi(point);
-		map->coordinates[coord_x][coord_y].color = LINE_DEFAULT;
+		map->coordinates[coord_x][coord_y].color = -1;
 	}
 	if (map->coordinates[coord_x][coord_y].z > map->max_z)
 		map->max_z = map->coordinates[coord_x][coord_y].z;
