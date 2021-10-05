@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
+
 static void	close_coordinates(t_point **coordinates, int width);
 
 void	close_all(t_fdf *fdf, int exit_code)
