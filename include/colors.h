@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 23:30:23 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/05 16:16:45 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/05 17:20:46 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define COLORS_H
 
 # define C_WHITE	0xffffff
-# define C_GREY		0x404040
+# define C_GREY		0x303030
 
 # define C_RED		0xff0000
 # define C_GREEN	0x00ff00
