@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:29:41 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/04 13:46:59 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/04 23:43:44 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ static void	fill_point(char *point, t_map *map, int coord_x, int coord_y)
 	else
 	{
 		map->coordinates[coord_x][coord_y].z = (float)ft_atoi(point);
-		map->coordinates[coord_x][coord_y].color = -1;
+		map->coordinates[coord_x][coord_y].color = LINE_DEFAULT;
 	}
 	if (map->coordinates[coord_x][coord_y].z > map->max_z)
 		map->max_z = map->coordinates[coord_x][coord_y].z;
