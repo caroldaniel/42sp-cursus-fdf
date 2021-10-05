@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
+
 static void	render_line(t_fdf *fdf, t_point start, t_point end);
 static void	apply_colors(t_fdf *fdf, t_point *point);
 
