@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
+
 static int	get_width(char *file_name);
 static int	get_depth(char *file_name);
 static void	get_points(char *file_name, t_map *map);
