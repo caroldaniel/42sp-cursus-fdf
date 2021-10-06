@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:03:59 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/05 21:10:13 by cado-car         ###   ########lyon.fr   */
+/*   Updated: 2021/10/05 22:23:00 by cado-car         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,13 +169,6 @@ typedef struct s_fdf
 # define ANG_30				0.52359877
 
 /*
-** Math macros
-*/
-# define ABS(a)		((a < 0) ? -a : a)
-# define MAX(a, b)	((a > b) ? a : b)
-# define MIN(a, b)	((a < b) ? a : b)
-
-/*
 ** Enumerator for projection names and boolean
 */
 enum e_projection
@@ -223,6 +216,13 @@ void	close_all(t_fdf *fdf, int exit_code);
 void	close_map(t_fdf *fdf, int exit_code);
 t_color	*color_init(t_point start, t_point end);
 t_color	*color_pallet_init(int min_color, int max_color);
+
+/*
+** Math utilities
+*/
+int		abs(float nbr);
+float	max(float a, float b);
+float	min(float a, float b);
 
 /*
 ** Drawing functions
