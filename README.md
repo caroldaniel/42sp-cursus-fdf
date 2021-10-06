@@ -152,11 +152,11 @@ By pressing `SPACE`, you can `change the color's pallet` from `default`(the pass
 
 <figure>
 <figcaption><i>Default - No predifined colors</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/9d225d46980b24278e4dbefb3d4d6cfa39a7739f/images/FdF-RotateX.gif alt="FdF isometric"/>
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/34db4e1317e2b4b2f845636b363c0e3bdea33184/images/FdF-Colors1.gif alt="FdF isometric"/>
 </figure>
 <figure>
 <figcaption><i>Default - With predifined colors</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/9d225d46980b24278e4dbefb3d4d6cfa39a7739f/images/FdF-RotateY.gif alt="FdF isometric"/>
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/34db4e1317e2b4b2f845636b363c0e3bdea33184/images/FdF-Colors2.giff alt="FdF isometric"/>
 </figure>
 
 ---
