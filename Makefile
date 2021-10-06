@@ -6,7 +6,7 @@
 #    By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 20:34:48 by cado-car          #+#    #+#              #
-#    Updated: 2021/10/05 20:51:11 by cado-car         ###   ########.fr        #
+#    Updated: 2021/10/05 22:32:11 by cado-car         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ SRC 		= $(SRCDIR)main.c \
 				$(SRCDIR)read.c \
 				$(SRCDIR)render.c \
 				$(SRCDIR)rotate.c \
-				$(SRCDIR)transform.c
+				$(SRCDIR)transform.c \
+				$(SRCDIR)utils.c
 
 OBJ=$(notdir $(SRC:.c=.o))
 #OBJ= fdf.o

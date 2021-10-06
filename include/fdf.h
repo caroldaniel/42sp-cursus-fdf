@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:03:59 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/05 22:26:09 by cado-car         ###   ########lyon.fr   */
+/*   Updated: 2021/10/05 22:39:23 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,7 @@ typedef struct s_fdf
 # define HEXADECIMAL_L_BASE	"0123456789abcdef"
 # define ANG_1				0.01745329
 # define ANG_30				0.52359877
+# define ANG_45				0.78539816
 
 /*
 ** Enumerator for projection names and boolean
@@ -220,7 +221,7 @@ t_color	*color_pallet_init(int min_color, int max_color);
 /*
 ** Math utilities
 */
-int		abs(float nbr);
+float	absolute(float nbr);
 float	max(float a, float b);
 float	min(float a, float b);
 

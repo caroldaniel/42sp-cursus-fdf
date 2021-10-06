@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:36:24 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/05 16:19:01 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/05 22:34:23 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ t_line	*init_line(t_point start, t_point end, t_fdf *fdf)
 	line->end.y = end.y;
 	line->end.z = end.z;
 	line->end.color = end.color;
-	line->transform_z = MAX((fdf->map->max_z - fdf->map->min_z), \
-		MAX(fdf->map->max_x, fdf->map->max_y));
+	line->transform_z = max((fdf->map->max_z - fdf->map->min_z), \
+		max(fdf->map->max_x, fdf->map->max_y));
 	return (line);
 }
