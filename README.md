@@ -111,8 +111,21 @@ By pressing `I`, `O` and `P` keys on your keyboard, you will switch projection v
 By pressing `Z` or `X`, you can decrease or increse, respectively, de `Z Scale Factor` on your map, maxing out at 100% on either direction.
 <figure>
 <figcaption><i>Z Scaling</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/a51b587e91e3ce6a41f74fc6ab785815eb21375e/images/FdF-isometric.png alt="FdF isometric"/>
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/f81a99491d039091eb10d1ded284f61f689846eb/images/FdF-ScaleZ.gif alt="FdF isometric"/>
 </figure>
+
+#### Zoom
+
+By pressing `-` or `+`, you can `Zoom Out` and `Zoom In`, respectively.
+<figure>
+<figcaption><i>Zoom Out</i></figcaption>
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/f81a99491d039091eb10d1ded284f61f689846eb/images/FdF-ZoomOut.gif alt="FdF isometric"/>
+</figure>
+<figure>
+<figcaption><i>Zoom In</i></figcaption>
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/f81a99491d039091eb10d1ded284f61f689846eb/images/FdF-ZoomIn.gif alt="FdF isometric"/>
+</figure>
+
 ---
 <h2>
 Usage
