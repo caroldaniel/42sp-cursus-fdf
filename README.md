@@ -134,15 +134,15 @@ By pressing `A` or `D`, you can `Rotate on the Z axis`.
 
 <figure>
 <figcaption><i>Rotate X</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/f81a99491d039091eb10d1ded284f61f689846eb/images/FdF-RotateX.gif alt="FdF isometric"/>
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/9d225d46980b24278e4dbefb3d4d6cfa39a7739f/images/FdF-RotateX.gif alt="FdF isometric"/>
 </figure>
 <figure>
 <figcaption><i>Rotate Y</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/f81a99491d039091eb10d1ded284f61f689846eb/images/FdF-RotateY.gif alt="FdF isometric"/>
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/9d225d46980b24278e4dbefb3d4d6cfa39a7739f/images/FdF-RotateY.gif alt="FdF isometric"/>
 </figure>
 <figure>
 <figcaption><i>Rotate Z</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/f81a99491d039091eb10d1ded284f61f689846eb/images/FdF-RotateZ.gif alt="FdF isometric"/>
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/9d225d46980b24278e4dbefb3d4d6cfa39a7739f/images/FdF-RotateZ.gif alt="FdF isometric"/>
 </figure>
 
 ---
