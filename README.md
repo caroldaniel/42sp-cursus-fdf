@@ -58,6 +58,7 @@ Main function
 Initialization
 - [`init.c`](srcs/init.c)
 - [`init_utils.c`](srcs/init_utils.c)
+- [`utils.c`](srcs/utils.c)
 
 Parsing and reading
 - [`read.c`](srcs/read.c)
@@ -81,6 +82,14 @@ Error management and program closing
 - [`close.c`](srcs/close.c)
 
 ### Features
+
+It was, ultimately, very hard not to extrapolate this project scope and go any further in implementing more functions, interactivity and color pallets. At some point, though, we had to stop. 
+
+For this implementation we chose to deal with all the mandatory requirements, all the bonus requirements and some bonus' bonuses, such as color gradients, top view and Z axis scaling.
+
+#### Different projections
+
+By pressing `I`, `O` and `P` keys on your keyboard, you will switch projection views to `Isometric`, `Top View` and `Perspective`, respectively. 
 
 ---
 <h2>

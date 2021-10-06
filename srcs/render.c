@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 19:40:08 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/05 22:36:40 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/06 09:12:47 by cado-car         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,14 @@ static void	apply_colors(t_fdf *fdf, t_point *point)
 	{
 		if (point->z >= 0)
 		{
-			col = color_pallet_init(BACKGROUND_DEFAULT, C_ORANGY);
+			col = color_pallet_init(C_GREY, C_ORANGY);
 			point->color = get_color(col, absolute(point->z), \
 				absolute(fdf->map->max_z));
 			free(col);
 		}
 		else
 		{
-			col = color_pallet_init(BACKGROUND_DEFAULT, C_BLUEY);
+			col = color_pallet_init(C_GREY, C_BLUEY);
 			point->color = get_color(col, absolute(point->z), \
 				absolute(fdf->map->max_z));
 			free(col);
