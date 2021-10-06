@@ -114,6 +114,8 @@ $> make
 > - `make fclean` deletes the `.o` and the `fdf` file generated
 > - `make re` executes `fclean` and `all` in sequence, recompiling the program
 > - `make rebonus` executes `fclean` and `bonus` in sequence, recompiling the program with the bonus functions
+> - `make leaks` executes valgrind to check for any possible leaks and puts it into a log file
+> - `make cleanleaks` cleans the leaks log file
 
 To run `fdf`, type:
 ```sh
