@@ -6,7 +6,7 @@
 /*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:03:59 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/05 22:23:00 by cado-car         ###   ########lyon.fr   */
+/*   Updated: 2021/10/05 22:26:09 by cado-car         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ typedef struct s_map
 typedef struct s_line
 {
 	t_point	start;
-	t_point end;
+	t_point	end;
 	float	transform_z;
 }	t_line;
 
@@ -97,9 +97,9 @@ typedef struct s_color
 }	t_color;
 
 /*
-** Image data structure: holds information on the image pointers given by MiniLibX
-** and the buffer pointer from which final image is printed, beside the current
-** line to be transfered into the buffer.
+** Image data structure: holds information on the image pointers given by 
+** MiniLibX and the buffer pointer from which final image is printed, beside the
+** current line to be transfered into the buffer.
 */
 typedef struct s_image
 {
