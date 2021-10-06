@@ -129,7 +129,9 @@ By pressing `-` or `+`, you can `Zoom Out` and `Zoom In`, respectively.
 #### Rotate
 
 By pressing `S` or `W`, you can `Rotate on the X axis`.
+
 By pressing `Q` or `E`, you can `Rotate on the Y axis`.
+
 By pressing `A` or `D`, you can `Rotate on the Z axis`.
 
 <figure>
@@ -143,6 +145,18 @@ By pressing `A` or `D`, you can `Rotate on the Z axis`.
 <figure>
 <figcaption><i>Rotate Z</i></figcaption>
 <img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/9d225d46980b24278e4dbefb3d4d6cfa39a7739f/images/FdF-RotateZ.gif alt="FdF isometric"/>
+</figure>
+
+#### Color
+By pressing `SPACE`, you can `change the color's pallet` from `default`(the passed-through-map colors) to `orange-blue` and back on. More color pallets can be configured by changing `apply_color` function on [`render.c`](srcs/render.c). More built-in pallets will be added in the future. 
+
+<figure>
+<figcaption><i>Default - No predifined colors</i></figcaption>
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/9d225d46980b24278e4dbefb3d4d6cfa39a7739f/images/FdF-RotateX.gif alt="FdF isometric"/>
+</figure>
+<figure>
+<figcaption><i>Default - With predifined colors</i></figcaption>
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/9d225d46980b24278e4dbefb3d4d6cfa39a7739f/images/FdF-RotateY.gif alt="FdF isometric"/>
 </figure>
 
 ---
