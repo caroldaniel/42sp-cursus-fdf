@@ -106,7 +106,7 @@ In your local repository, run `make`
 $> make 
 ```
 
-> `make` suports 7 flags:
+> `make` suports 9 flags:
 > - `make install` makes sure your system has all the prerequisites for running the program
 > - `make all` or simply `make` compiles fdf in its mandatory format
 > - `make bonus` compiles fdf in its bonus format
