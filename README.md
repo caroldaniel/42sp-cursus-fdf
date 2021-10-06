@@ -43,6 +43,8 @@ Bonus
 The project
 </h2>
 
+<img width="800px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/cedf0153543ddce81fef1b5e5953d8dd40485ea1/images/FdF.png alt="FdF"/>
+	
 ### Implementation files
 	
 - [`Makefile`](Makefile)
@@ -104,7 +106,7 @@ In your local repository, run `make`
 $> make 
 ```
 
-> `make` suports 7 flags:
+> `make` suports 9 flags:
 > - `make install` makes sure your system has all the prerequisites for running the program
 > - `make all` or simply `make` compiles fdf in its mandatory format
 > - `make bonus` compiles fdf in its bonus format
@@ -112,6 +114,8 @@ $> make
 > - `make fclean` deletes the `.o` and the `fdf` file generated
 > - `make re` executes `fclean` and `all` in sequence, recompiling the program
 > - `make rebonus` executes `fclean` and `bonus` in sequence, recompiling the program with the bonus functions
+> - `make leaks` executes valgrind to check for any possible leaks and puts it into a log file
+> - `make cleanleaks` cleans the leaks log file
 
 To run `fdf`, type:
 ```sh
