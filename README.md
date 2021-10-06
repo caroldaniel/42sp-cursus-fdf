@@ -106,6 +106,13 @@ By pressing `I`, `O` and `P` keys on your keyboard, you will switch projection v
 <img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/507d616345c7eeadcd809c6631efe0c854452218/images/FdF-perspective.png alt="FdF Perspective"/>
 </figure>
 
+#### Scaling Z
+
+By pressing `Z` or `X`, you can decrease or increse, respectively, de `Z Scale Factor` on your map, maxing out at 100% on either direction.
+<figure>
+<figcaption><i>Z Scaling</i></figcaption>
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/a51b587e91e3ce6a41f74fc6ab785815eb21375e/images/FdF-isometric.png alt="FdF isometric"/>
+</figure>
 ---
 <h2>
 Usage
