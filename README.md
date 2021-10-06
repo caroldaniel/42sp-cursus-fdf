@@ -95,15 +95,15 @@ By pressing `I`, `O` and `P` keys on your keyboard, you will switch projection v
 
 <figure>
 <figcaption><i>Isometric View</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/a51b587e91e3ce6a41f74fc6ab785815eb21375e/images/FdF-isometric.png alt="FdF isometric"/>
+<img width="550px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/a51b587e91e3ce6a41f74fc6ab785815eb21375e/images/FdF-isometric.png alt="FdF isometric"/>
 </figure>
 <figure>
 <figcaption><i>Top View</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/507d616345c7eeadcd809c6631efe0c854452218/images/FdF-topview.png alt="FdF Top View"/>
+<img width="550px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/507d616345c7eeadcd809c6631efe0c854452218/images/FdF-topview.png alt="FdF Top View"/>
 </figure>
 <figure>
 <figcaption><i>Perspective View</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/507d616345c7eeadcd809c6631efe0c854452218/images/FdF-perspective.png alt="FdF Perspective"/>
+<img width="550px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/507d616345c7eeadcd809c6631efe0c854452218/images/FdF-perspective.png alt="FdF Perspective"/>
 </figure>
 
 #### Scaling Z
@@ -111,7 +111,7 @@ By pressing `I`, `O` and `P` keys on your keyboard, you will switch projection v
 By pressing `Z` or `X`, you can decrease or increse, respectively, de `Z Scale Factor` on your map, maxing out at 100% on either direction.
 <figure>
 <figcaption><i>Z Scaling</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/f81a99491d039091eb10d1ded284f61f689846eb/images/FdF-ScaleZ.gif alt="FdF isometric"/>
+<img width="550px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/f81a99491d039091eb10d1ded284f61f689846eb/images/FdF-ScaleZ.gif alt="FdF isometric"/>
 </figure>
 
 #### Zoom
@@ -119,11 +119,11 @@ By pressing `Z` or `X`, you can decrease or increse, respectively, de `Z Scale F
 By pressing `-` or `+`, you can `Zoom Out` and `Zoom In`, respectively.
 <figure>
 <figcaption><i>Zoom Out</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/f81a99491d039091eb10d1ded284f61f689846eb/images/FdF-ZoomOut.gif alt="FdF isometric"/>
+<img width="550px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/f81a99491d039091eb10d1ded284f61f689846eb/images/FdF-ZoomOut.gif alt="FdF isometric"/>
 </figure>
 <figure>
 <figcaption><i>Zoom In</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/f81a99491d039091eb10d1ded284f61f689846eb/images/FdF-ZoomIn.gif alt="FdF isometric"/>
+<img width="550px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/f81a99491d039091eb10d1ded284f61f689846eb/images/FdF-ZoomIn.gif alt="FdF isometric"/>
 </figure>
 
 #### Rotate
@@ -136,15 +136,15 @@ By pressing `A` or `D`, you can `Rotate on the Z axis`.
 
 <figure>
 <figcaption><i>Rotate X</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/9d225d46980b24278e4dbefb3d4d6cfa39a7739f/images/FdF-RotateX.gif alt="FdF isometric"/>
+<img width="550px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/9d225d46980b24278e4dbefb3d4d6cfa39a7739f/images/FdF-RotateX.gif alt="FdF isometric"/>
 </figure>
 <figure>
 <figcaption><i>Rotate Y</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/9d225d46980b24278e4dbefb3d4d6cfa39a7739f/images/FdF-RotateY.gif alt="FdF isometric"/>
+<img width="550px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/9d225d46980b24278e4dbefb3d4d6cfa39a7739f/images/FdF-RotateY.gif alt="FdF isometric"/>
 </figure>
 <figure>
 <figcaption><i>Rotate Z</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/9d225d46980b24278e4dbefb3d4d6cfa39a7739f/images/FdF-RotateZ.gif alt="FdF isometric"/>
+<img width="550px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/9d225d46980b24278e4dbefb3d4d6cfa39a7739f/images/FdF-RotateZ.gif alt="FdF isometric"/>
 </figure>
 
 #### Color
@@ -152,11 +152,11 @@ By pressing `SPACE`, you can `change the color's pallet` from `default`(the pass
 
 <figure>
 <figcaption><i>Default - No predifined colors</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/34db4e1317e2b4b2f845636b363c0e3bdea33184/images/FdF-Colors1.gif alt="FdF isometric"/>
+<img width="550px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/34db4e1317e2b4b2f845636b363c0e3bdea33184/images/FdF-Colors1.gif alt="FdF isometric"/>
 </figure>
 <figure>
 <figcaption><i>Default - With predifined colors</i></figcaption>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/34db4e1317e2b4b2f845636b363c0e3bdea33184/images/FdF-Colors2.giff alt="FdF isometric"/>
+<img width="550px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/34db4e1317e2b4b2f845636b363c0e3bdea33184/images/FdF-Colors2.giff alt="FdF isometric"/>
 </figure>
 
 ---
