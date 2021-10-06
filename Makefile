@@ -6,7 +6,7 @@
 #    By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 20:34:48 by cado-car          #+#    #+#              #
-#    Updated: 2021/10/05 22:32:11 by cado-car         ###   ########.fr        #
+#    Updated: 2021/10/05 22:54:30 by cado-car         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,18 @@ $(LIBFT):
 
 bonus: all
 
+re: fclean all
+
+rebonus: fclean bonus
+
+leaks: 
+	$(LEAKS) $(LF)
+	@printf "$(GR)Leaks log ready! Check valgrind-out.txt $(RC)\n\n"
+
+cleanleaks: 
+	$(RM) $(LEAKS_FILE)
+	@printf "$(GR)Leaks log file deleted.$(RC)\n\n"
+
 clean:
 	@printf "\n$(YE)Cleaning all object files from libft...$(RC)\n"
 	@make clean -C $(LFT_PATH)
@@ -94,16 +106,11 @@ fclean: clean
 	@make fclean -C $(LFT_PATH)
 	@make clean -C $(MLX_PATH)
 	@printf "$(GR)All libraries removed!$(RC)\n\n"
+	make cleanleaks
 
-re: fclean all
-
-rebonus: fclean bonus
-
-leaks: 
-	$(LEAKS) $(LF)
-
-cleanleaks: 
-	$(RM) $(LEAKS_FILE)
+install: 
+	sudo apt-get install gcc make xorg libxext-dev libbsd-dev -y
+	@printf "$(GR)All dependencies ready!$(RC)\n\n"
 
 .PHONY: clean fclean re rebonus all bonus
 
