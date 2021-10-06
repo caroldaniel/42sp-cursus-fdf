@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cado-car <cado-car@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: cado-car <cado-car@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:03:59 by cado-car          #+#    #+#             */
-/*   Updated: 2021/10/05 15:39:00 by cado-car         ###   ########.fr       */
+/*   Updated: 2021/10/05 21:05:51 by cado-car         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ typedef struct s_fdf
 # define WINDOW_NAME	 	"fdf"
 # define WINDOW_WIDTH		1200
 # define WINDOW_HEIGHT		900
-# define MAX_PIXEL			WINDOW_WIDTH * WINDOW_HEIGHT
+# define MAX_PIXEL			WINDOW_WIDTH*WINDOW_HEIGHT
 
 /*
 ** Colors configuration
@@ -165,10 +165,10 @@ typedef struct s_fdf
 ** Conversion bases & useful angles in rad
 */
 # define HEXADECIMAL_L_BASE	"0123456789abcdef"
-# define ANG_1				M_PI / 180
-# define ANG_30				M_PI / 6 
-# define ANG_45				M_PI / 4 
-# define ANG_60				M_PI / 3 
+# define ANG_1				M_PI/180
+# define ANG_30				M_PI/6 
+# define ANG_45				M_PI/4 
+# define ANG_60				M_PI/3 
 
 /*
 ** Math macros
