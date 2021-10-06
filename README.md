@@ -94,16 +94,16 @@ For this implementation we chose to deal with all the mandatory requirements, al
 By pressing `I`, `O` and `P` keys on your keyboard, you will switch projection views to `Isometric`, `Top View` and `Perspective`, respectively. 
 
 <figure>
+<figcaption><i>Isometric View</i></figcaption>
 <img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/a51b587e91e3ce6a41f74fc6ab785815eb21375e/images/FdF-isometric.png alt="FdF isometric"/>
-<figcaption>Isometric View</figcaption>
 </figure>
 <figure>
+<figcaption><i>Top View</i></figcaption>
 <img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/507d616345c7eeadcd809c6631efe0c854452218/images/FdF-topview.png alt="FdF Top View"/>
-<figcaption>Top View</figcaption>
 </figure>
 <figure>
+<figcaption><i>Perspective View</i></figcaption>
 <img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/507d616345c7eeadcd809c6631efe0c854452218/images/FdF-perspective.png alt="FdF Perspective"/>
-<figcaption>Perspective View</figcaption>
 </figure>
 
 ---
