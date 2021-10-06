@@ -35,7 +35,7 @@ Bonus
 > <i> fdf <b>can</b> have: 
 > - Extra projections; 
 > - Zoom in and map translation;
-> - Rotate map.<i>
+> - Rotate map.</i>
 
 ---
 
@@ -43,7 +43,7 @@ Bonus
 The project
 </h2>
 
-<img width="800px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/cedf0153543ddce81fef1b5e5953d8dd40485ea1/images/FdF.png alt="FdF"/>
+<img src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/cedf0153543ddce81fef1b5e5953d8dd40485ea1/images/FdF.png alt="FdF"/>
 	
 ### Implementation files
 	
@@ -89,9 +89,9 @@ It was, ultimately, very hard not to extrapolate this project scope and go any f
 
 For this implementation we chose to deal with all the mandatory requirements, all the bonus requirements and some bonus' bonuses, such as color gradients, top view and Z axis scaling.
 
-<img width="300px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/a51b587e91e3ce6a41f74fc6ab785815eb21375e/images/FdF-isometric.png alt="FdF isometric"/>
-<img width="300px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/507d616345c7eeadcd809c6631efe0c854452218/images/FdF-topview.png alt="FdF Top View"/>
-<img width="300px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/507d616345c7eeadcd809c6631efe0c854452218/images/FdF-perspective.png alt="FdF Perspective"/>
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/a51b587e91e3ce6a41f74fc6ab785815eb21375e/images/FdF-isometric.png alt="FdF isometric"/>
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/507d616345c7eeadcd809c6631efe0c854452218/images/FdF-topview.png alt="FdF Top View"/>
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/507d616345c7eeadcd809c6631efe0c854452218/images/FdF-perspective.png alt="FdF Perspective"/>
 
 #### Different projections
 
