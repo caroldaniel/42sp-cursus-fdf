@@ -159,6 +159,12 @@ By pressing `SPACE`, you can `change the color's pallet` from `default`(the pass
 <img width="550px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/55bfca841c9ed91965d7af60c81f38e622b83c4a/images/FdF-Colors2.gif alt="FdF Colors 2"/>
 </figure>
 
+#### Reset and Close
+
+Press `R` to reset definitions on `Scale`, `Zoom` and `Rotation`. Current colors and projection view remains. 
+
+Press `ESC` to `Close` window. All memory allocation will be dealt with automatically. 
+
 ---
 <h2>
 Usage
