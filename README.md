@@ -43,7 +43,7 @@ Bonus
 The project
 </h2>
 
-<img src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/cedf0153543ddce81fef1b5e5953d8dd40485ea1/images/FdF.png alt="FdF"/>
+<img width="850px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/ead93a55e9f08f84a0dae6b4a7f090daa94248f8/images/FdF-42.gif alt="FdF"/>
 	
 ### Implementation files
 	
