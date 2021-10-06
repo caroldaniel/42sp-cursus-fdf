@@ -89,13 +89,16 @@ It was, ultimately, very hard not to extrapolate this project scope and go any f
 
 For this implementation we chose to deal with all the mandatory requirements, all the bonus requirements and some bonus' bonuses, such as color gradients, top view and Z axis scaling.
 
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/a51b587e91e3ce6a41f74fc6ab785815eb21375e/images/FdF-isometric.png alt="FdF isometric"/>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/507d616345c7eeadcd809c6631efe0c854452218/images/FdF-topview.png alt="FdF Top View"/>
-<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/507d616345c7eeadcd809c6631efe0c854452218/images/FdF-perspective.png alt="FdF Perspective"/>
-
 #### Different projections
 
 By pressing `I`, `O` and `P` keys on your keyboard, you will switch projection views to `Isometric`, `Top View` and `Perspective`, respectively. 
+
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/a51b587e91e3ce6a41f74fc6ab785815eb21375e/images/FdF-isometric.png alt="FdF isometric"/>
+<p>Isometric View</p>
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/507d616345c7eeadcd809c6631efe0c854452218/images/FdF-topview.png alt="FdF Top View"/>
+<p>Top View</p>
+<img width="400px" src=https://github.com/caroldaniel/42sp-cursus-fdf/blob/507d616345c7eeadcd809c6631efe0c854452218/images/FdF-perspective.png alt="FdF Perspective"/>
+<p>Perspective View</p>
 
 ---
 <h2>
