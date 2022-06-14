@@ -180,7 +180,7 @@ Usage
 Clone this repository in your local computer:
 
 ```sh
-$> git clone https://github.com/caroldaniel/42sp-cursus_libft.git path/to/fdf
+$> git clone https://github.com/caroldaniel/42sp-cursus-fdf.git path/to/fdf
 ```
 
 In your local repository, run `make`
